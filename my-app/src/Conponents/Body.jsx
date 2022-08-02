@@ -32,7 +32,9 @@ const Body = (props) => {
         <div className='body_section__wrapper_input_section'>
           <label htmlFor='currency_from'>FROM:</label>
           <select id='currency_from' type='text'>
-            <option value=''>UAH</option>
+            <option className='option-small' value=''>
+              UAH
+            </option>
           </select>
 
           <label htmlFor='currency_to'>TO:</label>
@@ -42,9 +44,9 @@ const Body = (props) => {
             value={currency}
             onChange={handleCurrencyValue}
           >
-            <option value={0}></option>
+            <option className='option-small' value={0}></option>
             {props.state.course.map(({ ccy, sale }) => (
-              <option key={ccy} value={sale}>
+              <option className='option-small' key={ccy} value={sale}>
                 {ccy}
               </option>
             ))}

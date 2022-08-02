@@ -1,118 +1,296 @@
-
 * {
-    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-      "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.header {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 15px;
+  background-color: lightgrey;
+  padding: 40px 0;
+
+  h1 {
+    color: green;
+    text-transform: uppercase;
+    width: 350px;
+    margin-bottom: 5px;
   }
-  
-  .header {
+  &__currency-status {
+    padding: 15px 0;
+    text-align: end;
+  }
+
+  &__currencies {
     display: flex;
-    justify-content: space-around;
-    margin-top: 15px;
-    background-color: lightgrey;
-    padding: 40px 0;
-  
-    h1 {
-      font-weight: 28px;
+    flex-direction: row;
+    margin: 10px 0;
+  }
+
+  &__uah {
+    color: green;
+  }
+
+  &__uah,
+  &__euro,
+  &__usd {
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 10px;
+  }
+
+  &__primary {
+    font-size: 16px;
+    background-color: grey;
+    color: white;
+    font-weight: bold;
+    padding: 10px 30px;
+    margin: 20px;
+    border: 3px solid #c1c1c1;
+
+    &.cash.active,
+    &.card.active,
+    &:hover {
+      border-color: orange;
+      background-color: green;
+      &::after {
+        display: block;
+        content: '';
+        width: 100%;
+        height: 1px;
+        background: lightgreen;
+      }
+    }
+  }
+
+  &__description {
+    font-weight: bold;
+    color: white;
+    background-color: #c1c1c1;
+    padding: 0 5px;
+    width: fit-content;
+  }
+}
+
+.body_section {
+  margin-left: 200px;
+
+  &__wrapper {
+    display: flex;
+    margin-top: 10px;
+    label {
+      font-size: 24px;
+      font-weight: bold;
       color: green;
-      text-transform: uppercase;
-      width: 350px;
-      margin-bottom: 5px;
+      margin-top: 25px;
     }
-    &__currency-status {
-      padding: 15px 0;
-      text-align: end;
-    }
-  
-    &__currencies {
+
+    &_output_section,
+    &_input_section {
+      flex-basis: 50%;
       display: flex;
-      flex-direction: row;
-      margin: 10px 0;
+      flex-direction: column;
+
+      select {
+        width: 180px;
+        font-size: 24px;
+        margin: 20px 0 10px 0;
+      }
     }
-  
-    &__uah {
-      color: green;
+
+    &_output_section {
+      #amount_to,
+      input {
+        text-align: center;
+        font-size: 32px;
+        border: none;
+        background: none;
+        outline: none;
+        width: 60%;
+        border-bottom: 3px dotted #b3b3b3;
+        margin: 10px 0;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .header {
+    &__primary {
+      padding: 10px 15px;
+      font-size: 14px;
+      border: 2px solid #c1c1c1;
+      margin: 0;
+      margin-left: 20px;
+    }
+
+    &__currency-status {
+      width: 60%;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+
+      .header__currencies {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+
+    h1 {
+      font-size: 20px;
+      width: 250px;
     }
 
     &__uah,
     &__euro,
     &__usd {
-      font-size: 20px;
-      font-weight: bold;
-      margin-left: 10px;
+      font-size: 17px;
     }
-
-    &__primary {
-      font-size: 16px;
-      background-color: grey;
-      color: white;
-      font-weight: bold;
-      padding: 10px 30px;
-      margin: 0 5px;
-      border: 3px solid #c1c1c1 ;
-      
-      &.cash.active,
-      &.card.active,
-      &:hover {
-        border-color: orange;
-        background-color: green;
-      }
-    }
-
-    &__description {
-      font-weight: bold;
-      color: white;
-      background-color: #c1c1c1;
-      padding: 0 5px;
-      width: fit-content;
-    }
-
   }
-  
+
   .body_section {
-    margin-left: 200px;
-  
+    margin-left: 40px;
+
+    &_header {
+      font-size: 20px;
+    }
+
     &__wrapper {
-      display: flex;
-      margin-top: 10px;
-      label {
-        font-size: 24px;
-        font-weight: bold;
-        color: green;
-        margin-top: 25px;
+      label,
+      &_output_section select,
+      &_input_section select {
+        font-size: 20px;
       }
-  
-      &_output_section,
-      &_input_section {
-        flex-basis: 50%;
-        display: flex;
-        flex-direction: column;
-  
-        select {
-          width: 180px;
-          font-size: 24px;
-          margin: 20px 0 10px 0;
-        }
-      }
-  
+
       &_output_section {
         #amount_to,
         input {
           text-align: center;
-          font-size: 32px;
-          border: none;
-          background: none;
-          outline: none;
-          width: 60%;
-          border-bottom: 3px dotted #b3b3b3;
-          margin: 10px 0;
+          font-size: 26px;
         }
-  
-  
       }
     }
-  
-  
-  
-  
-  
+    select option.option-small,
+    select option.option-small {
+      font-size: 20px;
+    }
   }
+}
+
+@media screen and (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0;
+    margin-top: 0;
+
+    & > div,
+    &__currency-status {
+      margin-left: 45px;
+    }
+
+    &__currency-status {
+      width: auto;
+      justify-content: start;
+    }
+
+    &__currencies {
+      justify-content: flex-start !important;
+      width: auto;
+    }
+
+    &__primary {
+      margin: 5px 20px;
+      margin-left: 0;
+      order: -1;
+    }
+
+    &__uah,
+    &__euro,
+    &__usd {
+      margin-left: 0;
+      font-size: 16px;
+    }
+  }
+
+  .body_section {
+    margin: 45px 0 140px 45px;
+
+    &__wrapper {
+      &_output_section {
+        #amount_to,
+        input {
+          text-align: center;
+          font-size: 24px;
+        }
+        label {
+          margin-top: 30px;
+        }
+      }
+    }
+
+    select {
+      width: 120px;
+    }
+
+    select option.option-small {
+      font-size: 16px;
+      font-weight: bold;
+    }
+  }
+}
+
+@media screen and (max-width: 425px) {
+  body {
+    font-size: 14px;
+  }
+  .header {
+    &__description {
+      margin: 10px;
+    }
+    div {
+      margin: 0 10px;
+    }
+    &__currencies {
+      flex-wrap: wrap;
+      max-width: 300px;
+      width: auto;
+      padding-top: 10px;
+
+      &_separate-line {
+        display: none;
+      }
+    }
+    &__currency-status {
+      width: auto;
+      max-width: 295px;
+
+    }
+    &__primary {
+      font-size: 14px;
+      font-weight: normal;
+      max-width: 120px;
+    }
+  }
+  .body_section {
+    margin: 30px 10px;
+    select {
+      font-size: 16px;
+      width: 80px;
+    }
+
+    &_header,
+    label,
+    input, #amount_to {
+      font-size: 18px;
+      margin-top: 10px;
+    }
+    #amount_to {
+      margin-top: 20px;
+    }
+    select option.option-small {
+      font-size: 14px;
+    }
+  }
+}

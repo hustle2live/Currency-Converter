@@ -30,14 +30,17 @@ const Header = (props) => {
             {' '}
             1 EURO =
             <span className='header__uah'>
-              {courcesArr.EUR || '--'} UAH
+              &nbsp;{courcesArr.EUR || '--'} UAH
             </span>{' '}
           </div>
           <div className='header__usd'>
             {' '}
-            | 1 USD =
+            <span className='header__currencies_separate-line'>
+              &nbsp;|&nbsp;
+            </span>
+            1 USD =
             <span className='header__uah'>
-              {courcesArr.USD || '--'} UAH
+              &nbsp;{courcesArr.USD || '--'} UAH
             </span>{' '}
           </div>
         </div>

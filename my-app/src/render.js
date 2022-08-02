@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { updateCourse, drawSelectOptions } from './State';
+import { updateCourse } from './State';
 import App from './App';
 
 import './index.css';
