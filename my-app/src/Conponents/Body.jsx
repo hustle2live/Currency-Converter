@@ -39,10 +39,12 @@ const Body = (props) => {
           <select
             id='currency_from'
             type='text'
-            value={inputCurrency}
             onChange={inputCurrencyValue}
+            value={inputCurrency}
           >
-            <option className='option-small' value={0}></option>
+            <option className='option-small' value={0}>
+              обрати
+            </option>
             <option className='option-small' value={1}>
               UAH
             </option>
@@ -57,10 +59,12 @@ const Body = (props) => {
           <select
             id='currency_to'
             type='text'
-            value={outputCurrency}
             onChange={handleCurrencyValue}
+            value={outputCurrency}
           >
-            <option className='option-small' value={0}></option>
+            <option className='option-small' value={0}>
+              обрати
+            </option>
             {props.state.course.map(({ ccy, sale }) => (
               <option className='option-small' key={ccy} value={sale}>
                 {ccy}
@@ -77,8 +81,9 @@ const Body = (props) => {
           <input
             id='amount_from'
             type='number'
-            value={inputValue}
             onChange={handleInputValue}
+            value={inputValue}
+            placeholder='Введіть суму'
           />
 
           <label htmlFor='amount_to'>AMOUNT</label>

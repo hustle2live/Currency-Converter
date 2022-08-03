@@ -124,7 +124,18 @@
         border-bottom: 3px dotted #b3b3b3;
         margin: 10px 0;
       }
+
+      #amount_from::placeholder {
+        opacity: 0.40;
+        text-transform: lowercase;
+        font-size: 0.8em;
+      }
     }
+  }
+
+  select option.option-small,
+  select option.option-small {
+    font-size: 22px;
   }
 }
 
