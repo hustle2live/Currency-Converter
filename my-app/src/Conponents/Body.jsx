@@ -2,21 +2,26 @@ import React, { useState } from 'react';
 
 const Body = (props) => {
   const [inputValue, setInputValue] = useState([]);
-  const [currency, setCurrency] = useState([]);
+  const [outputCurrency, setOutputCurrency] = useState([]);
+  const [inputCurrency, setInputCurrency] = useState([]);
 
   function handleInputValue(e) {
     setInputValue(e.target.value);
     getCurrency();
-    return setInputValue(e.target.value);
   }
 
   function handleCurrencyValue(e) {
-    return setCurrency(e.target.value);
+    setOutputCurrency(e.target.value);
   }
 
-  function getCurrency(a = inputValue, b = currency) {
+  function inputCurrencyValue(e) {
+    setInputCurrency(e.target.value);
+  }
+
+  function getCurrency(a = inputValue, b = outputCurrency, c = inputCurrency) {
     b = roundCourse(b);
-    const summ = a / b;
+    c = roundCourse(c);
+    const summ = (a * c) / b;
     if (a && b) return summ.toFixed(2);
     return ' -';
   }
@@ -31,17 +36,28 @@ const Body = (props) => {
       <div className='body_section__wrapper'>
         <div className='body_section__wrapper_input_section'>
           <label htmlFor='currency_from'>FROM:</label>
-          <select id='currency_from' type='text'>
-            <option className='option-small' value=''>
+          <select
+            id='currency_from'
+            type='text'
+            value={inputCurrency}
+            onChange={inputCurrencyValue}
+          >
+            <option className='option-small' value={0}></option>
+            <option className='option-small' value={1}>
               UAH
             </option>
+            {props.state.course.map(({ ccy, sale }) => (
+              <option className='option-small' key={ccy + 1} value={sale}>
+                {ccy}
+              </option>
+            ))}
           </select>
 
           <label htmlFor='currency_to'>TO:</label>
           <select
             id='currency_to'
-            type='number'
-            value={currency}
+            type='text'
+            value={outputCurrency}
             onChange={handleCurrencyValue}
           >
             <option className='option-small' value={0}></option>
@@ -50,6 +66,9 @@ const Body = (props) => {
                 {ccy}
               </option>
             ))}
+            <option className='option-small' value={1}>
+              UAH
+            </option>
           </select>
         </div>
 

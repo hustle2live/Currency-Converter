@@ -14,7 +14,7 @@ const Header = (props) => {
     });
   }
 
-  console.log(courcesArr);
+  // console.log(courcesArr);
 
   const getNewCourse = (courceId) => props.upgrade(courceId);
 
@@ -68,7 +68,13 @@ const Header = (props) => {
         >
           Безготівковий курс
         </button>
-        <p>Курс валют за даними АРІ ПриватБанку</p>
+        <p className='header__text'>
+          Отримайте актуальний курс,{' '}
+          <span className='material-symbols-outlined'>straight</span> натиснувши
+          на кнопку.
+          <br />
+          Курс валют взятий за даними ПриватБанку (АРІ)
+        </p>
       </div>
     </div>
   );

@@ -10,7 +10,6 @@ let state = {
 };
 
 export let updateCourse = (someLink = state.rate.cash) => {
-  console.log(someLink);
   const address = someLink;
   axios
     .get(`${address}`)
